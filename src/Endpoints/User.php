@@ -4,132 +4,110 @@ namespace elreco\LaravelFortnite\Endpoints;
 
 class User
 {
-	private $windows = ['alltime', 'season4', 'season5', 'season6', 'season7'];
-	public $uid = null;
+    private $windows = ['alltime', 'season4', 'season5', 'season6', 'season7'];
+    public $uid = null;
 
-	public function __construct($client)
-	{
-		$this->Client = $client;
-	}
+    public function __construct($client)
+    {
+        $this->Client = $client;
+    }
 
-	/*
-	 * Get user id out of an username.
-	 */
-	public function id($username = '')
-	{
-		if(!empty($username))
-		{
-			$return = json_decode($this->Client->httpCall('users/id', ['username' => urlencode($username)]));
-			
-			if(isset($return->error))
-			{
-				return $return->errorMessage;
-			}
-			else
-			{
-				$this->uid = $return->uid;
+    /*
+     * Get user id out of an username.
+     */
+    public function id($username = '')
+    {
+        if (! empty($username)) {
+            $return = json_decode($this->Client->httpCall('users/id', ['username' => urlencode($username)]));
 
-				return $return;
-			}
-		}
+            if (isset($return->error)) {
+                return $return->errorMessage;
+            } else {
+                $this->uid = $return->uid;
 
-		return 'Invalid username.';
-	}
+                return $return;
+            }
+        }
 
-	/*
-	 * Get user devices - returns an array.
-	 */
-	public function getDevices($username = '')
-	{
-		if(!empty($username))
-		{
-			$return = json_decode($this->Client->httpCall('users/id', ['username' => urlencode($username)]));
+        return 'Invalid username.';
+    }
 
-			if(isset($return->error))
-			{
-				return $return->errorMessage;
-			}
-			else
-			{
-				return $return->platforms;
-			}
-		}
+    /*
+     * Get user devices - returns an array.
+     */
+    public function getDevices($username = '')
+    {
+        if (! empty($username)) {
+            $return = json_decode($this->Client->httpCall('users/id', ['username' => urlencode($username)]));
 
-		return 'Invalid username.';
-	}
+            if (isset($return->error)) {
+                return $return->errorMessage;
+            } else {
+                return $return->platforms;
+            }
+        }
 
-	/*
-	 * Get username out of an user id (can be multiple in an array)
-	 */
-	public function getUsernameFromId($ids = null)
-	{
-		if(!empty($ids) && is_array($ids))
-		{
-			$return = json_decode($this->Client->httpCall('users/username%20out%20of%20id', ['ids' => $ids]));
+        return 'Invalid username.';
+    }
 
-			if(isset($return->error))
-			{
-				return $return->errorMessage;
-			}
-			else
-			{
-				return $return;
-			}
-		}
+    /*
+     * Get username out of an user id (can be multiple in an array)
+     */
+    public function getUsernameFromId($ids = null)
+    {
+        if (! empty($ids) && is_array($ids)) {
+            $return = json_decode($this->Client->httpCall('users/username%20out%20of%20id', ['ids' => $ids]));
 
-		return 'Usernames are invalid.';
-	}
+            if (isset($return->error)) {
+                return $return->errorMessage;
+            } else {
+                return $return;
+            }
+        }
 
-	/*
-	 * Get the user stats.
-	 */
-	public function stats($platform = 'pc', $window = 'alltime')
-	{
-		(empty($user_id) && !empty($this->uid)) ? $user_id = $this->uid: '';
-		(!in_array($window, $this->windows)) ? $window = 'alltime' : '';
+        return 'Usernames are invalid.';
+    }
 
-		if(!empty($user_id) && !empty($platform))
-		{
-			$return = json_decode($this->Client->httpCall('users/public/br_stats_v2', ['user_id' => $user_id, 'platform' => $platform, 'window' => $window]));
+    /*
+     * Get the user stats.
+     */
+    public function stats($platform = 'pc', $window = 'alltime')
+    {
+        (empty($user_id) && ! empty($this->uid)) ? $user_id = $this->uid : '';
+        (! in_array($window, $this->windows)) ? $window = 'alltime' : '';
 
-			if(isset($return->error))
-			{
-				return $return->errorMessage;
-			}
-			else
-			{
-				return $return;
-			}
-		}
+        if (! empty($user_id) && ! empty($platform)) {
+            $return = json_decode($this->Client->httpCall('users/public/br_stats_v2', ['user_id' => $user_id, 'platform' => $platform, 'window' => $window]));
 
-		return 'Invalid user id.';
-	}
+            if (isset($return->error)) {
+                return $return->errorMessage;
+            } else {
+                return $return;
+            }
+        }
 
-	/*
-	 * Match tracking - We can only show cached matches that are cached by using stats(). The first time asking for user matches can take a while because we are calculating all matches.
-	 */
-	public function matches($platform = 'pc', $window = 'alltime', $rows = 15)
-	{
-		(empty($user_id) && !empty($this->uid)) ? $user_id = $this->uid: '';
-		(!in_array($window, $this->windows)) ? $window = 'alltime' : '';
-		(!is_numeric($rows)) ? $rows = 15 : '';
+        return 'Invalid user id.';
+    }
 
-		if(!empty($user_id) && !empty($platform) && !empty($rows))
-		{
-			$return = json_decode($this->Client->httpCall('users/public/matches', ['user_id' => $user_id, 'platform' => $platform, 'window' => $window, 'rows' => $rows]));
+    /*
+     * Match tracking - We can only show cached matches that are cached by using stats(). The first time asking for user matches can take a while because we are calculating all matches.
+     */
+    public function matches($platform = 'pc', $window = 'alltime', $rows = 15)
+    {
+        (empty($user_id) && ! empty($this->uid)) ? $user_id = $this->uid : '';
+        (! in_array($window, $this->windows)) ? $window = 'alltime' : '';
+        (! is_numeric($rows)) ? $rows = 15 : '';
 
-			if(isset($return->error))
-			{
-				return $return->errorMessage;
-			}
-			else
-			{
-				return $return;
-			}
-		}
+        if (! empty($user_id) && ! empty($platform) && ! empty($rows)) {
+            $return = json_decode($this->Client->httpCall('users/public/matches', ['user_id' => $user_id, 'platform' => $platform, 'window' => $window, 'rows' => $rows]));
 
-		return 'Invalid user id.';
-	}
+            if (isset($return->error)) {
+                return $return->errorMessage;
+            } else {
+                return $return;
+            }
+        }
+
+        return 'Invalid user id.';
+    }
 }
-
-?>

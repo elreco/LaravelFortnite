@@ -2,29 +2,24 @@
 
 namespace elreco\LaravelFortnite\Endpoints;
 
-class PatchNotes
+class Patchnotes
 {
-	public function __construct($client)
-	{
-		$this->Client = $client;
-	}
+    public function __construct($client)
+    {
+        $this->Client = $client;
+    }
 
-	/*
-	 * Patchnotes
-	 */
-	public function get()
-	{
-		$return = json_decode($this->Client->httpCall('patchnotes/get', []));
+    /*
+     * Patchnotes
+     */
+    public function get()
+    {
+        $return = json_decode($this->Client->httpCall('patchnotes/get', []));
 
-		if(isset($return->error))
-		{
-			return $return->errorMessage;
-		}
-		else
-		{
-			return $return;
-		}
-	}
+        if (isset($return->error)) {
+            return $return->errorMessage;
+        } else {
+            return $return;
+        }
+    }
 }
-
-?>
