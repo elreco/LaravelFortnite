@@ -57,6 +57,8 @@ $data = $api->user->id('username');
 ```
 # Examples
 
+You can build website like mine : [tracker.fortnitefrance.eu](https://tracker.fortnitefrance.eu)
+
 1. Get an user id
 ```
 <?php
