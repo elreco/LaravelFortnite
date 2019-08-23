@@ -19,7 +19,7 @@ $ composer require elreco/laravelfortnite
 
 ## Usage
 
-1) Add `'Elreco\LaravelFortnite\LaravelFortnite;',` to your Controller file
+1) Add `'Elreco\LaravelFortnite\LaravelFortnite;'` to your Controller file
 
 ```
 <?php
