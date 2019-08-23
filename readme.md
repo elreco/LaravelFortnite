@@ -34,7 +34,7 @@ use Elreco\LaravelFortnite\LaravelFortnite;
 ?>
 ```
 
-2) Init a new LaravelFortnite object and set your api Key. You can have a key by rgistering on [FortniteAPI.com](https://fortniteapi.com)
+2) Init a new LaravelFortnite object and set your api Key. You can have a key by registering on [FortniteAPI.com](https://fortniteapi.com)
 
 ```
 <?php
