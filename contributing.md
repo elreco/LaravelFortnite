@@ -6,10 +6,7 @@ Contributions are accepted via Pull Requests on [Github](https://github.com/elre
 
 # Things you could do
 If you want to contribute but do not know where to start, this list provides some starting points.
-- Add license text
-- Remove rewriteRules.php
-- Set up TravisCI, StyleCI, ScrutinizerCI
-- Write a comprehensive ReadMe
+- Set up TravisCI, ScrutinizerCI
 
 ## Pull Requests
 
