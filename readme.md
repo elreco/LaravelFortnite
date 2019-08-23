@@ -4,7 +4,7 @@
 [![License](https://poser.pugx.org/elreco/laravelfortnite/license)](https://packagist.org/packages/elreco/laravelfortnite)
 [![Monthly Downloads](https://poser.pugx.org/elreco/laravelfortnite/d/monthly)](https://packagist.org/packages/elreco/laravelfortnite)
 
-This is a Fortnite API provider using [FortniteAPI.com](https://fortniteapi.com). You can get user wins, kills, the latest news, fortnite server status and many more with this API.
+This is a **Fortnite API** provider for **Laravel** using [FortniteAPI.com](https://fortniteapi.com). You can get user wins, kills, the latest news, fortnite server status and many more with this API.
 
 Thanks to [samhoogantink](https://github.com/samhoogantink/Fortnite-API) for the PHP code.
 
