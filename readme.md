@@ -16,6 +16,8 @@ Via Composer
 $ composer require elreco/laravelfortnite
 ```
 
+In your Laravel project root directory
+
 ## Usage
 
 1) Add `'Elreco\LaravelFortnite\LaravelFortnite;'` to your Controller file
