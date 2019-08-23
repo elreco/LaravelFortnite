@@ -1,6 +1,6 @@
 {
     "name": "elreco/laravelfortnite",
-    "description": ":description",
+    "description": "Fortnite API for Laravel",
     "license": "MIT",
     "authors": [
         {
