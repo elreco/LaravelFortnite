@@ -1,9 +1,6 @@
 # LaravelFortnite
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
+[![StyleCI](https://github.styleci.io/repos/204002127/shield)](https://github.styleci.io/repos/204002127)
 
 This is a Fortnite API provider using [FortniteAPI.com](https://fortniteapi.com). You can get user wins, kills, the latest news, fortnite server status and many more with this API.
 
@@ -132,7 +129,7 @@ If you discover any security related issues, please email author email instead o
 
 ## Credits
 
-- [Elreco][https://github.com/elreco]
+- [elreco](https://github.com/elreco)
 - [samhoogantink](https://github.com/samhoogantink)
 
 ## License
